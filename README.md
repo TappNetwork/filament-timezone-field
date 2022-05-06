@@ -49,7 +49,7 @@ public static function form(Form $form): Form
 }
 ```
 
-All Filament select field methods are available to use:
+All [Filament select field](https://filamentphp.com/docs/2.x/forms/fields#select) methods are available to use:
 
 ```php
 use Tapp\FilamentTimezoneField\Forms\Components\TimezoneSelect;
