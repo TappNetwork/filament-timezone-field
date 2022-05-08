@@ -1,17 +1,15 @@
 <?php
 
-namespace Tapp\FilamentTimezoneField\Forms\Components;
+namespace Tapp\FilamentTimezoneField\Tables\Filters;
 
-use Filament\Forms\Components\Select;
+use Filament\Tables\Filters\SelectFilter;
 use Tapp\FilamentTimezoneField\Concerns\CanFormatTimezone;
 use Tapp\FilamentTimezoneField\Concerns\HasTimezoneOptions;
 use Tapp\FilamentTimezoneField\Concerns\HasTimezoneType;
 
-class TimezoneSelect extends Select
+class TimezoneSelectFilter extends SelectFilter
 {
     use CanFormatTimezone;
     use HasTimezoneOptions;
     use HasTimezoneType;
-
-    protected string $view = 'forms::components.select';
 }

@@ -10,6 +10,8 @@ composer require tapp/filament-timezone-field
 
 ## Usage
 
+### Form Field
+
 Add to your Filament resource:
 
 ```php
@@ -26,11 +28,11 @@ public static function form(Form $form): Form
 }
 ```
 
-### Appareance
+#### Appareance
 
 ![Filament Timezone Field](https://raw.githubusercontent.com/TappNetwork/filament-timezone-field/main/docs/filament-timezone-field.png)
 
-### Options
+#### Options
 
 To use GMT instead of UTC (default is UTC), add the `->timezoneType('GMT')` method:
 
@@ -64,5 +66,47 @@ public static function form(Form $form): Form
                 ->required(),
             // ...
         ]);
+}
+```
+
+### Table Column
+
+```php
+use Tapp\FilamentTimezoneField\Tables\Columns\TimezoneColumn;
+
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            //...
+            TimezoneColumn::make('timezone')
+                ->timezoneType('GMT')
+                ->formattedOffsetAndTimezone(),
+        ])
+        // ...
+}
+```
+
+#### Options
+
+| Method | Description |
+| --- | --- |
+| ->formattedTimezone()  | Show formatted timezone name |
+| ->formattedOffsetAndTimezone() | Show formatted offset and timezone name |
+| ->timezoneType('GMT') | Use GMT instead of UTC  |
+
+### Table Filter
+
+```php
+use Tapp\FilamentTimezoneField\Tables\Filters\TimezoneSelectFilter;
+
+public static function table(Table $table): Table
+{
+    return $table
+        //...
+        ->filters([
+            TimezoneSelectFilter::make('timezone'),
+            // ...
+        ])
 }
 ```
