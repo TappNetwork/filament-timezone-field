@@ -9,7 +9,7 @@ composer require tapp/filament-timezone-field:"^3.0"
 ```
 
 > **Note** 
-> For **Filament 2.x** check the **[2.x](https://github.com//TappNetwork/filament-timezone-field/tree/2.x)** branch
+> For **Filament 2.x** check the **[2.x](https://github.com/TappNetwork/filament-timezone-field/tree/2.x)** branch
 
 ## Usage
 
