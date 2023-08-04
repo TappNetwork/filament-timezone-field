@@ -5,7 +5,7 @@ A timezone select field for Laravel Filament.
 ## Installation
 
 ```bash
-composer require tapp/filament-timezone-field
+composer require tapp/filament-timezone-field:"^2.0"
 ```
 
 ## Usage
