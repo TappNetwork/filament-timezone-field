@@ -12,6 +12,4 @@ class TimezoneSelect extends Select
     use CanFormatTimezone;
     use HasTimezoneOptions;
     use HasTimezoneType;
-
-    protected string $view = 'forms::components.select';
 }
