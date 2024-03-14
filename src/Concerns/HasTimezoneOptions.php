@@ -26,8 +26,14 @@ trait HasTimezoneOptions
 
         foreach ($timezones as $timezone) {
             $offsets[] = $offset = $now->setTimezone(new DateTimeZone($timezone))->getOffset();
-            
-            $data[$timezone] = $this->getFormattedOffsetAndTimezone($offset, $timezone);
+
+            if ($this->getDisplayOffset() && $this->getDisplayNames()) {
+                $data[$timezone] = $this->getFormattedOffsetAndTimezone($offset, $timezone);
+            } elseif ($this->getDisplayOffset()) {
+                $data[$timezone] = $this->getFormattedOffset($offset);
+            } else {
+                $data[$timezone] = $this->getFormattedTimezoneName($timezone);
+            }
         }
 
         array_multisort($offsets, $data);
