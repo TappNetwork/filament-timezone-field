@@ -72,6 +72,40 @@ public static function form(Form $form): Form
 }
 ```
 
+Optionally hide either timezone offsets or timezone names, depending on your use case:
+
+![Filament Timezone Display Options](https://raw.githubusercontent.com/TappNetwork/filament-timezone-field/main/docs/hide-timezone-offset.png)
+
+```php
+use Tapp\FilamentTimezoneField\Forms\Components\TimezoneSelect;
+
+public static function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            // ...
+            TimezoneSelect::make('timezone')
+                ->hideNames(),
+            // ...
+        ]);
+}
+```
+
+```php
+use Tapp\FilamentTimezoneField\Forms\Components\TimezoneSelect;
+
+public static function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            // ...
+            TimezoneSelect::make('timezone')
+                ->hideOffset(),
+            // ...
+        ]);
+}
+```
+
 ### Table Column
 
 ```php
