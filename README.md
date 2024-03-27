@@ -54,7 +54,32 @@ public static function form(Form $form): Form
 }
 ```
 
-All [Filament select field](https://filamentphp.com/docs/2.x/forms/fields#select) methods are available to use:
+To list only the timezones for a country, you can pass the country code to `->byCountry()` method. For example, to list only United States timezones:
+
+```php
+TimezoneSelect::make('timezone')
+    ->byCountry('US')
+```
+
+It's also possible to list the timezones for a region using `->byRegion()` method. You can specify a region with a [Region enum value](src/Enums/Region.php):
+
+```php
+use Tapp\FilamentTimezoneField\Enums\Region;
+
+TimezoneSelect::make('timezone')
+    ->byRegion(Region::Australia)
+```
+
+or you can use one of the [PHP's DateTimeZone predifined constants](https://www.php.net/manual/en/class.datetimezone.php):
+
+```php
+use DateTimeZone;
+
+TimezoneSelect::make('timezone')
+    ->byRegion(DateTimeZone::AUSTRALIA)
+```
+
+Also all [Filament select field](https://filamentphp.com/docs/2.x/forms/fields#select) methods are available to use:
 
 ```php
 use Tapp\FilamentTimezoneField\Forms\Components\TimezoneSelect;
