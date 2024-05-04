@@ -25,7 +25,7 @@ class TimezoneColumn extends TextColumn
     {
         $this->defaultState = $this->formatStateUsing(static function (Column $column, $state): ?string {
             $offset = $column->getOffset($state);
-            
+
             return $column->getFormattedOffsetAndTimezone($offset, $state);
         });
 

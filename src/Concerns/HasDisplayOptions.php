@@ -5,6 +5,7 @@ namespace Tapp\FilamentTimezoneField\Concerns;
 trait HasDisplayOptions
 {
     protected bool $displayOffset = true;
+
     protected bool $displayNames = true;
 
     public function hideOffset(): static

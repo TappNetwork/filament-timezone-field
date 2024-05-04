@@ -15,7 +15,7 @@ trait CanFormatTimezone
         return $this->getTimezoneType().($offset ? sprintf('%+03d:%02d', $hours, $minutes) : '');
     }
 
-    protected function getFormattedTimezoneName(string | DateTimeZone $name): string
+    protected function getFormattedTimezoneName(string|DateTimeZone $name): string
     {
         $name = is_string($name) ? $name : $name->getName();
 
@@ -26,12 +26,12 @@ trait CanFormatTimezone
         );
     }
 
-    protected function getFormattedOffsetAndTimezone(string $offset, string | DateTimeZone $timezone): string
+    protected function getFormattedOffsetAndTimezone(string $offset, string|DateTimeZone $timezone): string
     {
         return sprintf('(%s) %s', $this->getFormattedOffset($offset), $this->getFormattedTimezoneName($timezone));
     }
 
-    public function getOffset(string | DateTimeZone $timezone): string
+    public function getOffset(string|DateTimeZone $timezone): string
     {
         $now = new DateTime('now', new DateTimeZone($this->getTimezoneType()));
         $timezone = is_string($timezone) ? new DateTimeZone($timezone) : $timezone;

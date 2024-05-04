@@ -8,9 +8,9 @@ use Tapp\FilamentTimezoneField\Enums\Region;
 
 trait HasTimezoneOptions
 {
-    protected string | Closure | null $byCountry = null;
+    protected string|Closure|null $byCountry = null;
 
-    protected Region | int | Closure | null $byRegion = null;
+    protected Region|int|Closure|null $byRegion = null;
 
     public function getOptions(): array
     {
@@ -23,9 +23,9 @@ trait HasTimezoneOptions
 
     public function getTimezones(): array
     {
-        $timezones = match(true) {
-            !empty($this->byCountry) => $this->listTimezonesByCountry($this->byCountry),
-            !empty($this->byRegion) => $this->listTimezonesByRegion($this->byRegion),
+        $timezones = match (true) {
+            ! empty($this->byCountry) => $this->listTimezonesByCountry($this->byCountry),
+            ! empty($this->byRegion) => $this->listTimezonesByRegion($this->byRegion),
             default => $this->listAllTimezones(),
         };
 
@@ -50,26 +50,26 @@ trait HasTimezoneOptions
         return $data;
     }
 
-    public function byCountry(string | Closure | null $countryCode): static
+    public function byCountry(string|Closure|null $countryCode): static
     {
         $this->byCountry = $countryCode;
 
         return $this;
     }
 
-    public function getByCountry(): string | null
+    public function getByCountry(): ?string
     {
         return $this->evaluate($this->byCountry);
     }
 
-    public function byRegion(Region | int | Closure | null $region): static
+    public function byRegion(Region|int|Closure|null $region): static
     {
         $this->byRegion = $region;
 
         return $this;
     }
 
-    public function getByRegion(): Region | int | null
+    public function getByRegion(): Region|int|null
     {
         return $this->evaluate($this->byRegion);
     }
