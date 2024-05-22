@@ -15,6 +15,10 @@ class TimezoneColumn extends TextColumn
     public function formattedTimezone(): static
     {
         $this->defaultState = $this->formatStateUsing(static function (Column $column, $state): ?string {
+            if ($state instanceof \Tapp\FilamentTimezoneField\Tables\Columns\TimezoneColumn) {
+                return '';
+            }
+
             return $column->getFormattedTimezoneName($state);
         });
 
@@ -24,6 +28,10 @@ class TimezoneColumn extends TextColumn
     public function formattedOffsetAndTimezone(): static
     {
         $this->defaultState = $this->formatStateUsing(static function (Column $column, $state): ?string {
+            if ($state instanceof \Tapp\FilamentTimezoneField\Tables\Columns\TimezoneColumn) {
+                return '';
+            }
+
             $offset = $column->getOffset($state);
 
             return $column->getFormattedOffsetAndTimezone($offset, $state);
