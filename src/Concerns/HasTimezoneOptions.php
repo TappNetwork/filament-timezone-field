@@ -4,13 +4,14 @@ namespace Tapp\FilamentTimezoneField\Concerns;
 
 use DateTime;
 use DateTimeZone;
+use Illuminate\Support\Arr;
 use Tapp\FilamentTimezoneField\Enums\Region;
 
 trait HasTimezoneOptions
 {
-    protected string|Closure|null $byCountry = null;
+    protected array|string|Closure|null $byCountry = null;
 
-    protected Region|int|Closure|null $byRegion = null;
+    protected array|Region|int|Closure|null $byRegion = null;
 
     public function getOptions(): array
     {
@@ -50,43 +51,59 @@ trait HasTimezoneOptions
         return $data;
     }
 
-    public function byCountry(string|Closure|null $countryCode): static
+    public function byCountry(array|string|Closure|null $countryCode): static
     {
         $this->byCountry = $countryCode;
 
         return $this;
     }
 
-    public function getByCountry(): ?string
+    public function getByCountry(): array|string|null
     {
         return $this->evaluate($this->byCountry);
     }
 
-    public function byRegion(Region|int|Closure|null $region): static
+    public function byRegion(array|Region|int|Closure|null $region): static
     {
         $this->byRegion = $region;
 
         return $this;
     }
 
-    public function getByRegion(): Region|int|null
+    public function getByRegion(): array|Region|int|null
     {
         return $this->evaluate($this->byRegion);
     }
 
-    protected function listTimezonesByCountry($countryCode)
+    protected function listTimezonesByCountry(array|string $countryCodes)
     {
-        return DateTimeZone::listIdentifiers(
-            timezoneGroup: DateTimeZone::PER_COUNTRY,
-            countryCode: $countryCode,
-        );
+        $countryCodes = Arr::wrap($countryCodes);
+
+        $timezones = [];
+
+        foreach ($countryCodes as $countryCode) {
+            $timezones = array_merge($timezones, DateTimeZone::listIdentifiers(
+                timezoneGroup: DateTimeZone::PER_COUNTRY,
+                countryCode: $countryCode,
+            ));
+        }
+
+        return $timezones;
     }
 
-    protected function listTimezonesByRegion($region)
+    protected function listTimezonesByRegion(array|Region|int $regions)
     {
-        return DateTimeZone::listIdentifiers(
-            timezoneGroup: $region?->value ?? $region,
-        );
+        $regions = Arr::wrap($regions);
+
+        $timezones = [];
+
+        foreach ($regions as $region) {
+            $timezones = array_merge($timezones, DateTimeZone::listIdentifiers(
+                timezoneGroup: $region?->value ?? $region,
+            ));
+        }
+
+        return $timezones;
     }
 
     protected function listAllTimezones()
