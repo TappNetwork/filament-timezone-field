@@ -7,6 +7,7 @@ use Tapp\FilamentTimezoneField\Concerns\CanFormatTimezone;
 use Tapp\FilamentTimezoneField\Concerns\HasDisplayOptions;
 use Tapp\FilamentTimezoneField\Concerns\HasTimezoneOptions;
 use Tapp\FilamentTimezoneField\Concerns\HasTimezoneType;
+use Livewire\Livewire;
 
 class TimezoneSelect extends Select
 {
@@ -14,4 +15,14 @@ class TimezoneSelect extends Select
     use HasDisplayOptions;
     use HasTimezoneOptions;
     use HasTimezoneType;
+
+    public function getTimezoneFromBrowser(): static
+    {
+        $this->afterStateHydrated(function ($livewire) {
+            $id = $this->getName();
+            $livewire->js("setTimezoneFromBrowser('{$id}')");
+        });
+
+        return $this;
+    }
 }
