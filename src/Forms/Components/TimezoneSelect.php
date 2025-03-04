@@ -7,7 +7,6 @@ use Tapp\FilamentTimezoneField\Concerns\CanFormatTimezone;
 use Tapp\FilamentTimezoneField\Concerns\HasDisplayOptions;
 use Tapp\FilamentTimezoneField\Concerns\HasTimezoneOptions;
 use Tapp\FilamentTimezoneField\Concerns\HasTimezoneType;
-use Livewire\Livewire;
 
 class TimezoneSelect extends Select
 {
