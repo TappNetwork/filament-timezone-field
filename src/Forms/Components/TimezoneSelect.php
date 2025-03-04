@@ -18,7 +18,7 @@ class TimezoneSelect extends Select
     public function getTimezoneFromBrowser(): static
     {
         $this->afterStateHydrated(function ($livewire) {
-            $id = $this->getName();
+            $id = $this->getId();
             $livewire->js("setTimezoneFromBrowser('{$id}')");
         });
 
