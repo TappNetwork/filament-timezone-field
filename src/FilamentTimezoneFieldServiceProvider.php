@@ -2,10 +2,10 @@
 
 namespace Tapp\FilamentTimezoneField;
 
-use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Spatie\LaravelPackageTools\Package;
-use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentTimezoneFieldServiceProvider extends PackageServiceProvider
 {
@@ -19,7 +19,7 @@ class FilamentTimezoneFieldServiceProvider extends PackageServiceProvider
     public function packageBooted()
     {
         FilamentAsset::register([
-            Js::make('filament-timezone-field', __DIR__ . '/../dist/filament-timezone-field.js'),
+            Js::make('filament-timezone-field', __DIR__.'/../dist/filament-timezone-field.js'),
         ], 'tapp/filament-timezone-field');
     }
 }
