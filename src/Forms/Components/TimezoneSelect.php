@@ -7,6 +7,7 @@ use Tapp\FilamentTimezoneField\Concerns\CanFormatTimezone;
 use Tapp\FilamentTimezoneField\Concerns\HasDisplayOptions;
 use Tapp\FilamentTimezoneField\Concerns\HasTimezoneOptions;
 use Tapp\FilamentTimezoneField\Concerns\HasTimezoneType;
+use Livewire\Attributes\On;
 
 class TimezoneSelect extends Select
 {
@@ -18,8 +19,12 @@ class TimezoneSelect extends Select
     public function getTimezoneFromBrowser(): static
     {
         $this->afterStateHydrated(function ($livewire) {
-            $id = $this->getId();
-            $livewire->js("setTimezoneFromBrowser('{$id}')");
+            $statePath = $this->getStatePath();
+
+            $livewire->js("
+                    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                    \$wire.set('{$statePath}', timezone);
+            ");
         });
 
         return $this;
