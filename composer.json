@@ -33,12 +33,5 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Tapp\\FilamentTimezoneField\\FilamentTimezoneFieldServiceProvider"
-            ]
-        }
-    }
+    "prefer-stable": true
 }
