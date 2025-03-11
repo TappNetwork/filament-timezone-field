@@ -18,12 +18,15 @@ class TimezoneSelect extends Select
     public function getTimezoneFromBrowser(): static
     {
         $this->afterStateHydrated(function ($livewire) {
-            $statePath = $this->getStatePath();
+            // Only set browser timezone if the field is empty
+            if (blank($this->getState())) {
+                $statePath = $this->getStatePath();
 
-            $livewire->js("
+                $livewire->js("
                     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
                     \$wire.set('{$statePath}', timezone);
-            ");
+                ");
+            }
         });
 
         return $this;
