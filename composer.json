@@ -1,12 +1,7 @@
 {
     "name": "tapp/filament-timezone-field",
     "description": "Filament timezone field.",
-    "keywords": [
-        "tapp network",
-        "filament",
-        "laravel",
-        "timezone"
-    ],
+    "keywords": ["tapp network", "filament", "laravel", "timezone"],
     "license": "MIT",
     "authors": [
         {

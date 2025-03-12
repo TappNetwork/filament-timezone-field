@@ -156,6 +156,23 @@ public static function form(Form $form): Form
 }
 ```
 
+Optionally, hydrate the field with the timezone from the user's browser. If there is already a value, it will not be overridden.
+
+```php
+use Tapp\FilamentTimezoneField\Forms\Components\TimezoneSelect;
+
+public static function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            // ...
+            TimezoneSelect::make('timezone')
+                ->getTimezoneFromBrowser()
+            // ...
+        ]);
+}
+```
+
 ### Table Column
 
 ```php

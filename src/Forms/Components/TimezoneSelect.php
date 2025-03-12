@@ -14,4 +14,21 @@ class TimezoneSelect extends Select
     use HasDisplayOptions;
     use HasTimezoneOptions;
     use HasTimezoneType;
+
+    public function getTimezoneFromBrowser(): static
+    {
+        $this->afterStateHydrated(function ($livewire) {
+            // Only set browser timezone if the field is empty
+            if (blank($this->getState())) {
+                $statePath = $this->getStatePath();
+
+                $livewire->js("
+                    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                    \$wire.set('{$statePath}', timezone);
+                ");
+            }
+        });
+
+        return $this;
+    }
 }
