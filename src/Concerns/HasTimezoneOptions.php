@@ -2,10 +2,10 @@
 
 namespace Tapp\FilamentTimezoneField\Concerns;
 
+use Closure;
 use DateTime;
 use DateTimeZone;
 use Tapp\FilamentTimezoneField\Enums\Region;
-use Closure;
 
 trait HasTimezoneOptions
 {
