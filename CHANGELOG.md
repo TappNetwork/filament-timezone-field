@@ -2,6 +2,14 @@
 
 All notable changes to the "Filament Timezone Field" will be documented in this file.
 
+## v3.0.8 - 2025-03-31
+
+### What's Changed
+
+* Add option to pass the language  by @andreia in https://github.com/TappNetwork/filament-timezone-field/pull/16
+
+**Full Changelog**: https://github.com/TappNetwork/filament-timezone-field/compare/v3.0.7...v3.0.8
+
 ## v3.0.7 - 2025-03-12
 
 ### What's Changed
