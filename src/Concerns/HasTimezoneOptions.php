@@ -5,12 +5,27 @@ namespace Tapp\FilamentTimezoneField\Concerns;
 use DateTime;
 use DateTimeZone;
 use Tapp\FilamentTimezoneField\Enums\Region;
+use Closure;
 
 trait HasTimezoneOptions
 {
     protected string|Closure|null $byCountry = null;
 
     protected Region|int|Closure|null $byRegion = null;
+
+    protected string|Closure|null $language = 'en';
+
+    public function language(string|Closure|null $language): static
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    public function getLanguage(): ?string
+    {
+        return $this->evaluate($this->language);
+    }
 
     public function getOptions(): array
     {
@@ -30,18 +45,20 @@ trait HasTimezoneOptions
         };
 
         $data = [];
+        $offsets = [];
 
         $now = new DateTime('now', new DateTimeZone($this->getTimezoneType()));
+        $language = $this->getLanguage();
 
         foreach ($timezones as $timezone) {
             $offsets[] = $offset = $now->setTimezone(new DateTimeZone($timezone))->getOffset();
 
             if ($this->getDisplayOffset() && $this->getDisplayNames()) {
-                $data[$timezone] = $this->getFormattedOffsetAndTimezone($offset, $timezone);
+                $data[$timezone] = $this->getFormattedOffsetAndTimezone($offset, $timezone, $language);
             } elseif ($this->getDisplayOffset()) {
                 $data[$timezone] = $this->getFormattedOffset($offset);
             } else {
-                $data[$timezone] = $this->getFormattedTimezoneName($timezone);
+                $data[$timezone] = $this->getFormattedTimezoneName($timezone, $language);
             }
         }
 

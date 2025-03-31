@@ -41,6 +41,12 @@ public static function form(Form $form): Form
 
 #### Options
 
+To change the language of displayed timezones, use the `->language()` method passing the ISO 639-1 language code:
+
+```php
+->language('es')
+```
+
 To use GMT instead of UTC (default is UTC), add the `->timezoneType('GMT')` method:
 
 ```php

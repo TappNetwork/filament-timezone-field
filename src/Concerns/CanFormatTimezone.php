@@ -4,6 +4,7 @@ namespace Tapp\FilamentTimezoneField\Concerns;
 
 use DateTime;
 use DateTimeZone;
+use Symfony\Component\Intl\Timezones;
 
 trait CanFormatTimezone
 {
@@ -15,9 +16,22 @@ trait CanFormatTimezone
         return $this->getTimezoneType().($offset ? sprintf('%+03d:%02d', $hours, $minutes) : '');
     }
 
-    protected function getFormattedTimezoneName(string|DateTimeZone $name): string
+    protected function getFormattedTimezoneName(string|DateTimeZone $name, ?string $language = null): string
     {
         $name = is_string($name) ? $name : $name->getName();
+
+        if ($language) {
+            try {
+                return Timezones::getName($name, $language);
+            } catch (\Exception $e) {
+                // Fallback to default formatting if translation fails
+                return str_replace(
+                    ['/', '_', 'St '],
+                    [', ', ' ', 'St. '],
+                    $name,
+                );
+            }
+        }
 
         return str_replace(
             ['/', '_', 'St '],
@@ -26,9 +40,9 @@ trait CanFormatTimezone
         );
     }
 
-    protected function getFormattedOffsetAndTimezone(string $offset, string|DateTimeZone $timezone): string
+    protected function getFormattedOffsetAndTimezone(string $offset, string|DateTimeZone $timezone, ?string $language = null): string
     {
-        return sprintf('(%s) %s', $this->getFormattedOffset($offset), $this->getFormattedTimezoneName($timezone));
+        return sprintf('(%s) %s', $this->getFormattedOffset($offset), $this->getFormattedTimezoneName($timezone, $language));
     }
 
     public function getOffset(string|DateTimeZone $timezone): string
