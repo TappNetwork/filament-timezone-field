@@ -21,7 +21,6 @@
         "source": "https://github.com/TappNetwork/filament-timezone-field"
     },
     "require": {
-        "filament/filament": "^3.0-stable",
         "symfony/intl": "^7.0"
     },
     "autoload": {
