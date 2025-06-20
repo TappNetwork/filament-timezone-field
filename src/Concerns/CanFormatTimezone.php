@@ -2,9 +2,9 @@
 
 namespace Tapp\FilamentTimezoneField\Concerns;
 
-use Exception;
 use DateTime;
 use DateTimeZone;
+use Exception;
 use Symfony\Component\Intl\Timezones;
 
 trait CanFormatTimezone
