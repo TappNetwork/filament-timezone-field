@@ -4,6 +4,7 @@ namespace Tapp\FilamentTimezoneField\Concerns;
 
 use DateTime;
 use DateTimeZone;
+use Exception;
 use Symfony\Component\Intl\Timezones;
 
 trait CanFormatTimezone
@@ -23,7 +24,7 @@ trait CanFormatTimezone
         if ($language) {
             try {
                 return Timezones::getName($name, $language);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 // Fallback to default formatting if translation fails
                 return str_replace(
                     ['/', '_', 'St '],
