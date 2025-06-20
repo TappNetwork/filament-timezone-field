@@ -2,6 +2,14 @@
 
 All notable changes to the "Filament Timezone Field" will be documented in this file.
 
+## v3.0.10 - 2025-06-20
+
+### What's Changed
+
+* Updates to Filament 4 support by @andreia in https://github.com/TappNetwork/filament-timezone-field/pull/19
+
+**Full Changelog**: https://github.com/TappNetwork/filament-timezone-field/compare/v3.0.9...v3.0.10
+
 ## v3.0.9 - 2025-04-02
 
 ### What's Changed
