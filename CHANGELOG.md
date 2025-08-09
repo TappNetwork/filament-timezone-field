@@ -2,6 +2,14 @@
 
 All notable changes to the "Filament Timezone Field" will be documented in this file.
 
+## v3.0.11 - 2025-08-09
+
+### What's Changed
+
+* Load options when field is initialized by @andreia in https://github.com/TappNetwork/filament-timezone-field/pull/21
+
+**Full Changelog**: https://github.com/TappNetwork/filament-timezone-field/compare/v3.0.10...v3.0.11
+
 ## v3.0.10 - 2025-06-20
 
 ### What's Changed
