@@ -15,6 +15,13 @@ class TimezoneSelect extends Select
     use HasTimezoneOptions;
     use HasTimezoneType;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->options(fn () => $this->getOptions());
+    }
+
     public function getTimezoneFromBrowser(): static
     {
         $this->afterStateHydrated(function ($livewire) {
