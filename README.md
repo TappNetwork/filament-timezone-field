@@ -8,10 +8,10 @@ A timezone select field for Laravel Filament.
 
 ## Version Compatibility
 
- Filament | Filament Timezone Field | Documentation
-:--------|:-------------------|:--------------
-3.x/4.x  | 3.x                | Current
-2.x      | 2.x                | [Check the docs](https://github.com/TappNetwork/filament-timezone-field/tree/2.x)
+ Filament   | Filament Timezone Field | Documentation
+:-----------|:-------------------|:--------------
+3.x/4.x/5.x | 3.x                | Current
+2.x         | 2.x                | [Check the docs](https://github.com/TappNetwork/filament-timezone-field/tree/2.x)
 
 
 ## Installation
