@@ -6,14 +6,19 @@
 
 A timezone select field for Laravel Filament.
 
+## Version Compatibility
+
+ Filament | Filament Timezone Field | Documentation
+:--------|:-------------------|:--------------
+3.x/4.x  | 3.x                | Current
+2.x      | 2.x                | [Check the docs](https://github.com/TappNetwork/filament-timezone-field/tree/2.x)
+
+
 ## Installation
 
 ```bash
 composer require tapp/filament-timezone-field:"^3.0"
 ```
-
-> **Note** 
-> For **Filament 2.x** check the **[2.x](https://github.com/TappNetwork/filament-timezone-field/tree/2.x)** branch
 
 ## Usage
 
@@ -37,7 +42,7 @@ public static function form(Form $form): Form
 
 #### Appareance
 
-![Filament Timezone Field](https://raw.githubusercontent.com/TappNetwork/filament-timezone-field/main/docs/filament-timezone-field.png)
+![Filament Timezone Field](https://raw.githubusercontent.com/TappNetwork/filament-timezone-field/3.x/docs/filament-timezone-field.png)
 
 #### Options
 
@@ -130,7 +135,7 @@ TimezoneSelect::make('timezone')
 
 Optionally, hide either timezone offsets or timezone names, depending on your use case:
 
-![Filament Timezone Display Options](https://raw.githubusercontent.com/TappNetwork/filament-timezone-field/main/docs/hide-timezone-offset.png)
+![Filament Timezone Display Options](https://raw.githubusercontent.com/TappNetwork/filament-timezone-field/3.x/docs/hide-timezone-offset.png)
 
 ```php
 use Tapp\FilamentTimezoneField\Forms\Components\TimezoneSelect;
