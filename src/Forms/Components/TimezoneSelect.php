@@ -33,16 +33,16 @@ class TimezoneSelect extends Select
                 // "Component not found" on auth/SPA pages). Use Livewire.find(id) instead
                 // of $wire so we never look up the component during the initial effect run.
                 $livewire->js(
-                    '(function () {' .
-                    'var id = ' . json_encode($componentId) . ';' .
-                    'var statePath = ' . json_encode($statePath) . ';' .
-                    'var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;' .
-                    'var run = function () {' .
-                    '  var livewire = typeof Livewire !== "undefined" ? Livewire : window.Livewire;' .
-                    '  var c = livewire && livewire.find(id);' .
-                    '  if (c) c.set(statePath, timezone);' .
-                    '};' .
-                    'if (typeof queueMicrotask === "function") { queueMicrotask(run); } else { setTimeout(run, 0); }' .
+                    '(function () {'.
+                    'var id = '.json_encode($componentId).';'.
+                    'var statePath = '.json_encode($statePath).';'.
+                    'var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;'.
+                    'var run = function () {'.
+                    '  var livewire = typeof Livewire !== "undefined" ? Livewire : window.Livewire;'.
+                    '  var c = livewire && livewire.find(id);'.
+                    '  if (c) c.set(statePath, timezone);'.
+                    '};'.
+                    'if (typeof queueMicrotask === "function") { queueMicrotask(run); } else { setTimeout(run, 0); }'.
                     '})();'
                 );
             }
