@@ -2,6 +2,14 @@
 
 All notable changes to the "Filament Timezone Field" will be documented in this file.
 
+## v3.0.13 - 2026-01-28
+
+### What's Changed
+
+* Fix getTimezoneFromBrowser() causing "Component not found" on auth/SPA pages by @scottgrayson in https://github.com/TappNetwork/filament-timezone-field/pull/27
+
+**Full Changelog**: https://github.com/TappNetwork/filament-timezone-field/compare/v3.0.12...v3.0.13
+
 ## v3.0.12 - 2026-01-20
 
 ### What's Changed
