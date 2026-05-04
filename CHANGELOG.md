@@ -2,6 +2,18 @@
 
 All notable changes to the "Filament Timezone Field" will be documented in this file.
 
+## v3.1.0 - 2026-05-04
+
+### What's Changed
+
+* Chore: Allow symfony/intl ^8.0 by @webard in https://github.com/TappNetwork/filament-timezone-field/pull/28
+
+### New Contributors
+
+* @webard made their first contribution in https://github.com/TappNetwork/filament-timezone-field/pull/28
+
+**Full Changelog**: https://github.com/TappNetwork/filament-timezone-field/compare/v3.0.13...v3.1.0
+
 ## v3.0.13 - 2026-01-28
 
 ### What's Changed
